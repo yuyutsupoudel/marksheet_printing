@@ -557,8 +557,13 @@ public class Marksheet extends javax.swing.JFrame {
             catch (IOException e){System.out.println(e.getMessage());}
     }
     private void Set_data_to_pannel(int i){
-        jLabel1.setText(student_name[i]);    
-        jLabel2.setText(sn[i]);
+        st_nm.setText(student_name[i]);    
+        fa_nm.setText(father_name[i]);
+        mo_nm.setText(mother_name[i]);
+        addr.setText(address[i]);
+        mark.setText(total_gpa[i]);
+        bs_dob.setText(dob_bs[i]);
+        ad_dob.setText(dob_ad[i]);
     }
     public BufferedImage generateimage(){   
      Rectangle r = getBounds();
@@ -585,64 +590,72 @@ public class Marksheet extends javax.swing.JFrame {
     private void initComponents() {
 
         jPanel1 = new javax.swing.JPanel();
-        jLabel1 = new javax.swing.JLabel();
-        jButton1 = new javax.swing.JButton();
-        jLabel2 = new javax.swing.JLabel();
+        st_nm = new javax.swing.JLabel();
+        fa_nm = new javax.swing.JLabel();
+        mo_nm = new javax.swing.JLabel();
+        addr = new javax.swing.JLabel();
+        mark = new javax.swing.JLabel();
+        bs_dob = new javax.swing.JLabel();
+        ad_dob = new javax.swing.JLabel();
+        Background = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setMaximumSize(new java.awt.Dimension(739, 1040));
         setMinimumSize(new java.awt.Dimension(730, 1040));
         setSize(new java.awt.Dimension(739, 1040));
-        getContentPane().setLayout(null);
 
         jPanel1.setOpaque(false);
+        jPanel1.setLayout(null);
 
-        jLabel1.setText("jLabel3");
+        st_nm.setText("jLabel1");
+        jPanel1.add(st_nm);
+        st_nm.setBounds(300, 263, 280, 15);
 
-        jButton1.setText("jButton1");
-        jButton1.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton1ActionPerformed(evt);
-            }
-        });
+        fa_nm.setText("jLabel2");
+        jPanel1.add(fa_nm);
+        fa_nm.setBounds(125, 283, 290, 15);
 
-        jLabel2.setText("jLabel2");
+        mo_nm.setText("jLabel3");
+        jPanel1.add(mo_nm);
+        mo_nm.setBounds(482, 283, 190, 15);
 
-        javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
-        jPanel1.setLayout(jPanel1Layout);
-        jPanel1Layout.setHorizontalGroup(
-            jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel1Layout.createSequentialGroup()
-                .addContainerGap(140, Short.MAX_VALUE)
-                .addComponent(jButton1)
-                .addGap(56, 56, 56))
-            .addGroup(jPanel1Layout.createSequentialGroup()
-                .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 68, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addComponent(jLabel2))
+        addr.setText("jLabel4");
+        jPanel1.add(addr);
+        addr.setBounds(190, 303, 370, 15);
+
+        mark.setText("jLabel5");
+        jPanel1.add(mark);
+        mark.setBounds(170, 343, 70, 15);
+
+        bs_dob.setText("jLabel6");
+        jPanel1.add(bs_dob);
+        bs_dob.setBounds(75, 363, 150, 15);
+
+        ad_dob.setText("jLabel7");
+        jPanel1.add(ad_dob);
+        ad_dob.setBounds(260, 363, 190, 15);
+
+        Background.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
+        Background.setIcon(new javax.swing.ImageIcon(getClass().getResource("/saugat/project/com/template.png"))); // NOI18N
+        Background.setVerticalAlignment(javax.swing.SwingConstants.TOP);
+        jPanel1.add(Background);
+        Background.setBounds(0, 0, 730, 1040);
+
+        javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
+        getContentPane().setLayout(layout);
+        layout.setHorizontalGroup(
+            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, 736, javax.swing.GroupLayout.PREFERRED_SIZE)
         );
-        jPanel1Layout.setVerticalGroup(
-            jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel1Layout.createSequentialGroup()
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 34, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jLabel2))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 167, Short.MAX_VALUE)
-                .addComponent(jButton1)
-                .addGap(34, 34, 34))
+        layout.setVerticalGroup(
+            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(layout.createSequentialGroup()
+                .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, 1041, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(0, 1, Short.MAX_VALUE))
         );
-
-        getContentPane().add(jPanel1);
-        jPanel1.setBounds(0, 0, 290, 260);
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
-
-    private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
-        // TODO add your handling code here:
-        Get_all_data_from_excel(file_Path);
-        //JOptionPane.showMessageDialog(this, "lol");
-    }//GEN-LAST:event_jButton1ActionPerformed
 
     /**
      * @param args the command line arguments
@@ -680,9 +693,14 @@ public class Marksheet extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JButton jButton1;
-    private javax.swing.JLabel jLabel1;
-    private javax.swing.JLabel jLabel2;
+    private javax.swing.JLabel Background;
+    private javax.swing.JLabel ad_dob;
+    private javax.swing.JLabel addr;
+    private javax.swing.JLabel bs_dob;
+    private javax.swing.JLabel fa_nm;
     private javax.swing.JPanel jPanel1;
+    private javax.swing.JLabel mark;
+    private javax.swing.JLabel mo_nm;
+    private javax.swing.JLabel st_nm;
     // End of variables declaration//GEN-END:variables
 }
